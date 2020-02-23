@@ -1,1 +1,30 @@
-// Specific CSS for your home-page
+.home-banner {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  margin-top: -66.5px;
+}
+
+.home-banner-text {
+  margin-top: 35%;
+  text-align: center;
+  h1 {
+    font-size: 68px;
+    color: #A7FFF6;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .home-btn {
+    background-color: #0B3954;
+    padding: 8px 16px;
+    color: white;
+    border-radius: 5px;
+    font-size: 24px;
+    display: inline-block;
+    margin-top: 20px;
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
