@@ -1,2 +1,17 @@
-<h1>Babies#show</h1>
-<p>Find me in app/views/babies/show.html.erb</p>
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <%= link_to "Neue Erinnerung", new_baby_memory_path(@baby), class: "new-btn" %>
+  </div>
+  <div class="row">
+    <% @memories.each do |memory| %>
+    <div class="col-12 col-lg-6 col-xl-4">
+      <%= link_to memory_path(memory) do %>
+        <h2><%= memory.title %></h2>
+        <%= cl_image_tag memory.photos.first.key, class: "card-img" %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+
+
+</div>

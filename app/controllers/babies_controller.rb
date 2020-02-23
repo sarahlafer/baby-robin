@@ -4,6 +4,7 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
+    @memories = Memory.all
   end
 
   def new

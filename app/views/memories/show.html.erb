@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= @memory.title %></h1>
+  <h3><%= @memory.description %></h3>
+  <p><%= @memory.date %></p>
+  <div class="row">
+    <% @memory.photos.each do |photo| %>
+      <div class="col-12 col-lg-6 d-flex justify-content-center">
+        <%= cl_image_tag photo.key, class: 'card-img' %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
