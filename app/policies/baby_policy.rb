@@ -12,4 +12,8 @@ class BabyPolicy < ApplicationPolicy
   def create?
     user.admin
   end
+
+  def destroy?
+    user == record.user
+  end
 end

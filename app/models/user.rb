@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   has_many :babies
   has_many :comments
+  has_many :memories
   has_one_attached :photo
 end
