@@ -1,6 +1,7 @@
 <h1><%= @memory.title %></h1>
 <h3><%= @memory.description %></h3>
-<p><%= @memory.date %></p>
+<% age = @memory.baby.calculate_age(@memory.date, @memory.baby.birthday) %>
+<p>Am <%= @memory.date.strftime("%d.%m.%y") %> - <%= age %></p>
 <div class="row">
   <% if @memory.photos.present? %>
   <% @memory.photos.each do |photo| %>
