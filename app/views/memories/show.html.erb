@@ -17,3 +17,10 @@
     <% end %>
   <% end %>
 </div>
+
+<%= link_to "Kommentar", new_memory_comment_path(@memory) %>
+
+<% @memory.comments.each do |comment| %>
+  <p><%= comment.text %></p>
+  <p>From <%= comment.user.first_name %></p>
+<% end %>

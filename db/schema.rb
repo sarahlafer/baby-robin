@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_205737) do
+ActiveRecord::Schema.define(version: 2020_02_25_212303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 2020_02_25_205737) do
     t.index ["user_id"], name: "index_babies_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "text"
+    t.bigint "memory_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["memory_id"], name: "index_comments_on_memory_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "memories", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -73,5 +83,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_205737) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "babies", "users"
+  add_foreign_key "comments", "memories"
+  add_foreign_key "comments", "users"
   add_foreign_key "memories", "babies"
 end

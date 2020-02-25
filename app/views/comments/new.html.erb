@@ -1,0 +1,6 @@
+<h1>Neues Kommentar</h1>
+
+<%= simple_form_for [@memory, @comment] do |f| %>
+  <%= f.input :text %>
+  <%= f.submit 'Neues Kommentar' %>
+<% end %>
