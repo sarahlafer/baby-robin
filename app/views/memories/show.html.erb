@@ -1,22 +1,19 @@
-<div class="container">
-  <h1><%= @memory.title %></h1>
-  <h3><%= @memory.description %></h3>
-  <p><%= @memory.date %></p>
-  <div class="row">
-    <% if @memory.photos.present? %>
-    <% @memory.photos.each do |photo| %>
+<h1><%= @memory.title %></h1>
+<h3><%= @memory.description %></h3>
+<p><%= @memory.date %></p>
+<div class="row">
+  <% if @memory.photos.present? %>
+  <% @memory.photos.each do |photo| %>
+    <div class="col-12 col-lg-6 d-flex justify-content-center">
+      <%= cl_image_tag photo.key, class: 'card-img' %>
+    </div>
+  <% end %>
+  <% end %>
+  <% if @memory.videos.present? %>
+    <% @memory.videos.each do |video| %>
       <div class="col-12 col-lg-6 d-flex justify-content-center">
-        <%= cl_image_tag photo.key, class: 'card-img' %>
+        <%= cl_video_tag video.key, autoplay: true, class: 'card-img' %>
       </div>
     <% end %>
-    <% end %>
-    <% if @memory.videos.present? %>
-      <% @memory.videos.each do |video| %>
-        <div class="col-12 col-lg-6 d-flex justify-content-center">
-          <%= cl_video_tag video.key, autoplay: true, class: 'card-img' %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
-

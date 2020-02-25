@@ -1,21 +1,17 @@
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <%= link_to "Neue Erinnerung", new_baby_memory_path(@baby), class: "new-btn" %>
-  </div>
-  <div class="row">
-    <% @memories.each do |memory| %>
-    <div class="col-12 col-lg-6 col-xl-4">
-      <%= link_to memory_path(memory) do %>
-        <h2><%= memory.title %></h2>
-        <% if memory.photos.present? %>
-          <%= cl_image_tag memory.photos.first.key, class: "card-img" %>
-        <% elsif memory.videos.present? %>
-          <%= cl_video_tag memory.videos.first.key, class: "card-img" %>
-        <% end %>
+<div class="d-flex justify-content-center">
+  <%= link_to "Neue Erinnerung", new_baby_memory_path(@baby), class: "new-btn" %>
+</div>
+<div class="row">
+  <% @memories.each do |memory| %>
+  <div class="col-12 col-lg-6 col-xl-4">
+    <%= link_to memory_path(memory) do %>
+      <h2><%= memory.title %></h2>
+      <% if memory.photos.present? %>
+        <%= cl_image_tag memory.photos.first.key, class: "card-img" %>
+      <% elsif memory.videos.present? %>
+        <%= cl_video_tag memory.videos.first.key, class: "card-img" %>
       <% end %>
-    </div>
     <% end %>
   </div>
-
-
+  <% end %>
 </div>
