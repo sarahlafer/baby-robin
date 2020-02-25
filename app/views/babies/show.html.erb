@@ -7,7 +7,11 @@
     <div class="col-12 col-lg-6 col-xl-4">
       <%= link_to memory_path(memory) do %>
         <h2><%= memory.title %></h2>
-        <%= cl_image_tag memory.photos.first.key, class: "card-img" %>
+        <% if memory.photos.present? %>
+          <%= cl_image_tag memory.photos.first.key, class: "card-img" %>
+        <% elsif memory.videos.present? %>
+          <%= cl_video_tag memory.videos.first.key, class: "card-img" %>
+        <% end %>
       <% end %>
     </div>
     <% end %>
