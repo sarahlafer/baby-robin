@@ -1,10 +1,12 @@
-<h1>Füge eine neue Erinnerung hinzu</h1>
+<div class="container">
+  <h1>Füge eine neue Erinnerung hinzu</h1>
 
-<%= simple_form_for [@baby, @memory] do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :date %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :videos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit "Weiter" %>
-<% end %>
+  <%= simple_form_for [@baby, @memory] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :date %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.input :videos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Weiter", class: "btn btn-primary" %>
+  <% end %>
+</div>

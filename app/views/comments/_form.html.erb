@@ -1,0 +1,5 @@
+<%= simple_form_for([ memory, comment ], remote: true) do |f| %>
+  <%= f.label "Schreib ein Kommentar dazu!" %>
+  <%= f.input :text, label: false %>
+  <%= f.submit 'Abschicken', class: "btn btn-primary" %>
+<% end %>

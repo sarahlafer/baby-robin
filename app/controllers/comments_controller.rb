@@ -13,11 +13,16 @@ class CommentsController < ApplicationController
     @comment.memory = @memory
     @comment.user = current_user
     authorize @comment
-
     if @comment.save
-      redirect_to memory_path(@memory)
+      respond_to do |format|
+        format.html { redirect_to memory_path(@memory) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html { render 'memories/show' }
+        format.js  # <-- idem
+      end
     end
   end
 
@@ -35,7 +40,6 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to memory_path(@comment.memory)
   end
 
   private
