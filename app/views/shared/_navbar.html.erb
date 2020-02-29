@@ -29,10 +29,9 @@
     <ul class="navbar-nav d-sm-none">
       <% if user_signed_in? %>
 
-      <% if current_user.photo.attached? %>
+      <%= link_to "Alle Erinnerungen", baby_path(Baby.find(1)), class: "btn btn-primary" %>
 
-        <%= cl_image_tag current_user.photo.key, class: 'avatar' %>
-      <% end %>
+
 
         <!-- <li class="nav-item dropdown">
           <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

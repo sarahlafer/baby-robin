@@ -1,7 +1,7 @@
  <div class="comment-card" data-comment-id="<%= comment.id %>">
   <div class="d-md-flex">
     <div class="comment-user">
-      <%= cl_image_tag comment.user.photo.key, class: "avatar mb-2" %>
+      <%= cl_image_tag comment.user.photo.key, class: "avatar mb-2" if comment.user.photo.attached? %>
       <p><strong>Von <%= comment.user.first_name %></strong></p>
     </div>
     <p class="comment-text"><%= comment.text %></p>
