@@ -1,18 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag 'logo.png' %>
-    <% end %>
+  <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<!--   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  </button> -->
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+  <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+    <ul class="navbar-nav d-none d-sm-flex">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Alle Erinnerungen", baby_path(Baby.find(1)), class: "mr-4 btn btn-primary" %>
+          <%= link_to "Alle Erinnerungen", baby_path(Baby.find(1)), class: "nav-link mr-4" %>
         </li>
         <li class="nav-item dropdown">
           <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -27,5 +27,27 @@
         </li>
       <% end %>
     </ul>
+
+    <ul class="navbar-nav d-sm-none">
+      <% if user_signed_in? %>
+
+      <%= cl_image_tag current_user.photo.key, class: 'avatar' %>
+
+        <!-- <li class="nav-item dropdown">
+          <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%#= link_to "Alle Erinnerungen", baby_path(Baby.find(1)), class: "dropdown-item" %>
+            <%#= link_to "Profil bearbeiten", edit_user_registration_path, class: "dropdown-item" %>
+            <%#= link_to "Ausloggen", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          </div>
+        </li>
+ -->
+
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "btn btn-primary" %>
+        </li>
+      <% end %>
+    </ul>
   </div>
-</div>
+<!-- </div> -->

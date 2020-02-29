@@ -28,3 +28,15 @@
 a:hover {
   text-decoration: none;
 }
+
+@include media-breakpoint-only(md) {
+  .home-banner-text {
+    margin-top: 55%;
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .home-banner-text {
+    margin-top: 75%;
+  }
+}
