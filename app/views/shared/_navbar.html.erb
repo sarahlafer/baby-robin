@@ -31,7 +31,10 @@
     <ul class="navbar-nav d-sm-none">
       <% if user_signed_in? %>
 
-      <%= cl_image_tag current_user.photo.key, class: 'avatar' %>
+      <% if current_user.photo.present? %>
+
+        <%= cl_image_tag current_user.photo.key, class: 'avatar' %>
+      <% end %>
 
         <!-- <li class="nav-item dropdown">
           <%#= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
